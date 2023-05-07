@@ -112,4 +112,4 @@ Only make sure your model is fitted by the same argument is_feature_eng
 
 #### Acknowlegements
 
-Thanks for Mr.Ye Jiahui(www.yjh.cn@gmail.com) contributing to the baseline, dataset analysis and final report, who helps me a lot in this project. And also thanks for Ms.Yuan Ye(yuanye@connect.hku.hk) to organize the final report and come up with some great ideas. Also thanks for Mr.Bian Lin and Yi Xunming
+Thanks for Mr.Ye Jiahui(www.yjh.cn@gmail.com) contributing to the baseline, dataset analysis and final report, who helps me a lot in this project. And also thanks for Ms.Yuan Ye(yuanye@connect.hku.hk) to organize the final report and come up with some great ideas.
