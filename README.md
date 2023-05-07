@@ -27,9 +27,7 @@ By running this command, you will get 7 csv file in total:
 
 The spliting ratio is 2:1:1, and before spliting the dataset, a Robust Scaler is used to scale the data.
 
-### Modeling
-
-#### Baseline--Random Guess
+### Baseline--Random Guess
 
 In the part of random guess, we hope our estimates can be as close as possible to the overall distribution characteristics of the training data while introducing certain randomness as well, then use this mode to fit the validation set. For this reason, we designed two parts: Within-breath fit, and Between-breath guess. Within-breath fits specifically examines the timing relationship of samples within a breath\_id, and Between-breath explores the distribution relationship between samples at the same timestamp between different breath\_ids, and we adjusted the weight of the linear combination of the two through the coefficient $\alpha$, which means:
 
@@ -53,4 +51,43 @@ After fitting, we get the baseline, which is listed below:
 |0.5|0.31|45.18|3.71|0.35|0.27| 
 |1|0.50|32.68|3.66|0.45|0.29| 
   
+### Modeling
 
+You can use the following command to do the modeling fit:
+
+```
+python main.py --do_train_eval --is_feature_eng --model_name [model_name] 
+```
+After running this command, The model will be saved to '.runs/model_name/model.pkl' (for model by scikit-learn) or '.runs/model_name/model.pt' (for model by pytorch)
+
+And you will also find there are two csv files in the same output path if you are fitting a model by scikit-learn: train_results.csv, eval_results.csv, which record the hyperparameter and criterion values ($R^2$, MSE, MAE, MAPE, SMAPE) of your model. If you are trying to fit a new model with same model name but different hyperparameters, the results will be automatically added to the existend csv files.
+
+If you are fitting a model by pytorch, there will be one csv file named train.csv in the same output file, which records the training loss and validation loss during your training process
+
+The current availabel models are:
+
+* LinearRegression
+
+* DecisionTree
+
+* RandomForest
+
+* xgboost
+
+* mlp_tabular
+
+* mlp_sequence
+
+* cnn
+
+* cnn_residual
+
+* rnn
+
+* lstm
+
+* gru
+
+If you set is_feature_eng, then the model will fit the data after feature engineering
+
+For more details about arguments, please refer to main.py
