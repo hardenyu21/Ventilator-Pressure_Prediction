@@ -47,17 +47,10 @@ Between-breath guess is based on an important assumption, if each breath is rega
 
 After fitting, we get the baseline, which is listed below:
 
-\begin{table}[htbp]
-    \centering
-    \caption{Evaluation of random guess}
-    \begin{tabular}{cccccc}
-        \toprule
-        \textbf{$\alpha$} & \textbf{$R^2$} & \textbf{MSE} & \textbf{MAE} & \textbf{MAPE} & \textbf{SMAPE} \\
-        \midrule
-        0 & -0.27 & 82.93 & 5.07 & 0.36 & 0.39 \\
-        0.5 & 0.31 & 45.18 & 3.71 & 0.35 & 0.27 \\
-        1 & 0.50 & 32.68 & 3.66 & 0.45 & 0.29 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+|$\alpha$|$R^2$|MSE|MAE|MAPE|SMAPE|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|0|-0.27|82.93|5.07|0.36|0.39| 
+|0.5|0.31|45.18|3.71|0.35|0.27| 
+|1|0.50|32.68|3.66|0.45|0.29| 
+  
 
