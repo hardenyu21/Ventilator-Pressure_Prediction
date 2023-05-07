@@ -91,3 +91,13 @@ The current availabel models are:
 If you set is_feature_eng, then the model will fit the data after feature engineering
 
 For more details about arguments, please refer to main.py
+
+#### Prediction
+
+After you fit your model, you can run this command to test your model on the testing set:
+
+```
+python main.py --do_pred --model_name [model_name] --is_feature_eng
+```
+
+Only make sure your model is fitted by the same argument is_feature_eng
