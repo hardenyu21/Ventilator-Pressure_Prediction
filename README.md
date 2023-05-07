@@ -34,7 +34,30 @@ The spliting ratio is 2:1:1, and before spliting the dataset, a Robust Scaler is
 In the part of random guess, we hope our estimates can be as close as possible to the overall distribution characteristics of the training data while introducing certain randomness as well, then use this mode to fit the validation set. For this reason, we designed two parts: Within-breath fit, and Between-breath guess. Within-breath fits specifically examines the timing relationship of samples within a breath\_id, and Between-breath explores the distribution relationship between samples at the same timestamp between different breath\_ids, and we adjusted the weight of the linear combination of the two through the coefficient $\alpha$, which means:
 
 $$
-final\_guess = \alpha \times WithinBreath\_fit + (1-\alpha) \times BetweenBreath\_guess
+final\_guess = \alpha \times WithinBreath\_{fit} + (1-\alpha) \times BetweenBreath\_guess
 $$
 
+**How to get the WithinBreath\_fit?**
+
+First calculate the average value of the corresponding positions of each sequence in the training set to obtain the sample mean sequence
+
+**How to get the BetweenBreath\_guess?**
+
+Between-breath guess is based on an important assumption, if each breath is regarded as a whole sample, they should be independent of each other and generally follow the normal distribution. That is to say, for each breath\_id, the pressure value under the same timestamp is normally distributed.
+
+After fitting, we get the baseline, which is listed below:
+
+\begin{table}[htbp]
+    \centering
+    \caption{Evaluation of random guess}
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{$\alpha$} & \textbf{$R^2$} & \textbf{MSE} & \textbf{MAE} & \textbf{MAPE} & \textbf{SMAPE} \\
+        \midrule
+        0 & -0.27 & 82.93 & 5.07 & 0.36 & 0.39 \\
+        0.5 & 0.31 & 45.18 & 3.71 & 0.35 & 0.27 \\
+        1 & 0.50 & 32.68 & 3.66 & 0.45 & 0.29 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
