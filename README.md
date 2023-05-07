@@ -2,6 +2,14 @@
 
 This is for STAT8017 project in HKU, althogh the project is done, but there is something still valuable to go further...
 
+### Environment
+
+Firstly, install the required packages by:
+
+```
+pip install -r requirements.txt
+```
+
 ### Dataset
 
 The dataset is released by Google brain in kaggle: https://www.kaggle.com/competitions/ventilator-pressure-prediction/data
